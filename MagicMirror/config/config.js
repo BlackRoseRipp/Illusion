@@ -7,7 +7,6 @@
  * see https://docs.magicmirror.builders/getting-started/configuration.html#general
  * and https://docs.magicmirror.builders/modules/configuration.html
  */
-require("dotenv").config()
 
 let config = {
 	address: "localhost", 	// Address to listen on, can be:
@@ -31,8 +30,8 @@ let config = {
 	language: "en",
 	locale: "en-US",
 	logLevel: ["INFO", "LOG", "WARN", "ERROR"], // Add "DEBUG" for even more logging
-	timeFormat: 24,
-	units: "metric",
+	timeFormat: 12,
+	units: "imperial",
 	// serverOnly:  true/false/"local" ,
 	// local for armv6l processors, default
 	//   starts serveronly and then starts chrome browser
@@ -40,13 +39,6 @@ let config = {
 	// true, force serveronly mode, because you want to.. no UI on this device
 
 	modules: [
-		{
-			module: "alert",
-		},
-		{
-			module: "updatenotification",
-			position: "top_bar"
-		},
 		{
 			module: "clock",
 			position: "top_left"
@@ -64,10 +56,6 @@ let config = {
 			}
 		},
 		{
-			module: "compliments",
-			position: "lower_third"
-		},
-		{
 			module: "weather",
 			position: "top_right",
 			config: {
@@ -75,7 +63,7 @@ let config = {
 				type: "current",
 				location: "New York",
 				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				apiKey: process.env.openWeatherAPI
+				apiKey: "4a35c4b443fa2594bc852d57ba8b59c0"
 			}
 		},
 		{
@@ -87,7 +75,7 @@ let config = {
 				type: "forecast",
 				location: "New York",
 				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				apiKey: process.env.openWeatherAPI
+				apiKey: "4a35c4b443fa2594bc852d57ba8b59c0"
 			}
 		},
 		{
