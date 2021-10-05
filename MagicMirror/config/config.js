@@ -63,7 +63,7 @@ let config = {
 				type: "current",
 				location: "New York",
 				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				apiKey: "4a35c4b443fa2594bc852d57ba8b59c0"
+				apiKey: "weather api key"
 			}
 		},
 		{
@@ -75,7 +75,7 @@ let config = {
 				type: "forecast",
 				location: "New York",
 				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				apiKey: "4a35c4b443fa2594bc852d57ba8b59c0"
+				apiKey: "weather api key"
 			}
 		},
 		{
@@ -94,6 +94,28 @@ let config = {
 				broadcastNewsUpdates: true
 			}
 		},
+		{
+            module: 'MMM-GoogleMapsTraffic',
+            position: 'top_left',
+            config: {
+                key: 'gmaps api key',
+                lat: 40.74485,
+                lng: -74.0261457,
+                height: '300px',
+                width: '300px',
+				zoom: 15,
+                styledMapType: "dark",
+                disableDefaultUI: true,
+                backgroundColor: 'hsla(0, 0%, 0%, 0)',
+                markers: [
+                    {
+                        lat: 40.74485,
+                        lng: -74.0261457,
+                        fillColor: '#ff0000'
+                    },
+                ],
+            },
+        }
 	]
 };
 
