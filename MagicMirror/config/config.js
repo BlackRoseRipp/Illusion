@@ -29,8 +29,8 @@ let config = {
 	language: "en",
 	locale: "en-US",
 	logLevel: ["INFO", "LOG", "WARN", "ERROR"], // Add "DEBUG" for even more logging
-	timeFormat: 24,
-	units: "metric",
+	timeFormat: 12,
+	units: "imperial",
 	// serverOnly:  true/false/"local" ,
 	// local for armv6l processors, default
 	//   starts serveronly and then starts chrome browser
@@ -61,6 +61,27 @@ let config = {
 				]
 			}
 		},
+        {
+            module: "MMM-NJTransit",
+            position: "top_left",
+            header: "Bus Schedule",
+            config: {
+                colored: true,
+                stops: [{
+                        id: "26229",
+                        label: "Port Authority to HOB Terminal",
+                        color: "cyan",
+                        routes: ["126"]
+                    },
+                    {
+                        id: "20496",
+                        label: "HOB Terminal to Port Authority",
+                        color: "yellow",
+                        routes: ["126"]
+                    }
+                ]
+            }
+        },
 		
 		{
 			module: "compliments",
@@ -93,7 +114,7 @@ let config = {
 
 		{
 			module: "MMM-Canvas",
-			position: "top_right",
+			position: "bottom_left",
 			config: {
 			  accessKey: "canvaskey",
 			  colors: ["white", "white", "white", "white", "white", "white", "white", "white", ],
