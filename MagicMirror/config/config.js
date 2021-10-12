@@ -114,7 +114,7 @@ let config = {
 
 		{
 			module: "MMM-Canvas",
-			position: "top_right",
+			position: "bottom_left",
 			config: {
 			  accessKey: "canvaskey",
 			  colors: ["white", "white", "white", "white", "white", "white", "white", "white", ],
