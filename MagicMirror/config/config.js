@@ -61,6 +61,27 @@ let config = {
 				]
 			}
 		},
+        {
+            module: "MMM-NJTransit",
+            position: "top_left",
+            header: "Bus Schedule",
+            config: {
+                colored: true,
+                stops: [{
+                        id: "26229",
+                        label: "Port Authority to HOB Terminal",
+                        color: "cyan",
+                        routes: ["126"]
+                    },
+                    {
+                        id: "20496",
+                        label: "HOB Terminal to Port Authority",
+                        color: "yellow",
+                        routes: ["126"]
+                    }
+                ]
+            }
+        },
 		
 		{
 			module: "compliments",
