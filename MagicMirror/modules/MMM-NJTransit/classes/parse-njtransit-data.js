@@ -31,7 +31,7 @@ const parseNjtData = async (xml) => {
         explicitArray: false,
         ignoreAttrs: true,
         normalizeTags: true,
-        valueProcessors: [name => name.toLowerCase()]
+        valueProcessors: [name => name.toUpperCase()]
     });
     try {
         const xmlObj = await util.promisify(parser.parseString.bind(parser))(xml);

@@ -8,19 +8,19 @@ Module.register("MMM-NJTransit", {
 
     defaults: {
         requiresVersion: "2.4.0",
-        animationSpeed: 1000,
+        animationSpeed: 1,
         broadcastEvents: true,
         colored: false,
         destinations: [],
-        displayDestination: true,
+        displayDestination: false,
         displayRoute: true,
         displayStopName: true,
         displaySymbol: true,
         fade: true,
         fadePoint: 0.25,
         fetchInterval: 60000,
-        maximumEntries: 10,
-        maximumNumberOfMinutes: 60,
+        maximumEntries: 6,
+        maximumNumberOfMinutes: 30,
         routes: [],
         stops: []
     },
