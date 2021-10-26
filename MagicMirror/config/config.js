@@ -7,13 +7,33 @@
  * see https://docs.magicmirror.builders/getting-started/configuration.html#general
  * and https://docs.magicmirror.builders/modules/configuration.html
  */
+//require('dotenv').config();
+
+//let weatherAPI = process.env.WEATHER_API;
+
+let remote = null
+if (typeof window !== "undefined"){
+	remote = window.require("electron").remote
+}
+
+let readEnvironment = function (name) {
+	if (typeof process !== "undefined" && process.env[name]) {
+	  // process is undefined in the Electron app.
+	  return process.env[name]
+	}
+	if (remote && remote.process.env[name]) {
+	  // remote is null if the Electron nodeIntegration value isn't set to true.
+	  return remote.process.env[name]
+	}
+}
+
 let config = {
 	address: "localhost", 	// Address to listen on, can be:
 							// - "localhost", "127.0.0.1", "::1" to listen on loopback interface
 							// - another specific IPv4/6 to listen on a specific interface
 							// - "0.0.0.0", "::" to listen on any interface
 							// Default, when address config is left out or empty, is "localhost"
-	port: 8080,
+	port: 8001,
 	basePath: "/", 	// The URL path where MagicMirror is hosted. If you are using a Reverse proxy
 					// you must set the sub path here. basePath must end with a /
 	ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1"], 	// Set [] to allow all IP addresses
@@ -29,13 +49,19 @@ let config = {
 	language: "en",
 	locale: "en-US",
 	logLevel: ["INFO", "LOG", "WARN", "ERROR"], // Add "DEBUG" for even more logging
-	timeFormat: 24,
-	units: "metric",
+	timeFormat: 12,
+	units: "imperial",
 	// serverOnly:  true/false/"local" ,
 	// local for armv6l processors, default
 	//   starts serveronly and then starts chrome browser
 	// false, default for all NON-armv6l devices
 	// true, force serveronly mode, because you want to.. no UI on this device
+
+	electronOptions: {
+		webPreferences: {
+		  nodeIntegration: true
+		}
+	},
 
 	modules: [
 		{
@@ -47,7 +73,7 @@ let config = {
 		},
 		{
 			module: "clock",
-			position: "top_left"
+			position: "top_left",
 		},
 		{
 			module: "calendar",
@@ -73,7 +99,7 @@ let config = {
 				type: "current",
 				location: "New York",
 				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				apiKey: "YOUR_OPENWEATHER_API_KEY"
+				appid: readEnvironment("OPENWEATHER_API_KEY")
 			}
 		},
 		{
@@ -85,7 +111,7 @@ let config = {
 				type: "forecast",
 				location: "New York",
 				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				apiKey: "YOUR_OPENWEATHER_API_KEY"
+				appid: readEnvironment("OPENWEATHER_API_KEY")
 			}
 		},
 		{

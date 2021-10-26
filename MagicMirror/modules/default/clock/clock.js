@@ -12,7 +12,7 @@ Module.register("clock", {
 		displayType: "digital", // options: digital, analog, both
 
 		timeFormat: config.timeFormat,
-		displaySeconds: true,
+		displaySeconds: false, //default: true
 		showPeriod: true,
 		showPeriodUpper: false,
 		clockBold: false,
