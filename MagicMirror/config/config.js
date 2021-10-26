@@ -87,10 +87,33 @@ let config = {
 				]
 			}
 		},
+        {
+            module: "MMM-NJTransit",
+            position: "top_left",
+            header: "Bus Schedule",
+            config: {
+                colored: true,
+                stops: [{
+                        id: "26229",
+                        label: "Port Authority to HOB Terminal",
+                        color: "cyan",
+                        routes: ["126"]
+                    },
+                    {
+                        id: "20496",
+                        label: "HOB Terminal to Port Authority",
+                        color: "yellow",
+                        routes: ["126"]
+                    }
+                ]
+            }
+        },
+		
 		{
 			module: "compliments",
 			position: "lower_third"
 		},
+		
 		{
 			module: "weather",
 			position: "top_right",
@@ -99,7 +122,7 @@ let config = {
 				type: "current",
 				location: "New York",
 				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				appid: readEnvironment("OPENWEATHER_API_KEY")
+				apiKey: "4a35c4b443fa2594bc852d57ba8b59c0"
 			}
 		},
 		{
@@ -111,9 +134,23 @@ let config = {
 				type: "forecast",
 				location: "New York",
 				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				appid: readEnvironment("OPENWEATHER_API_KEY")
+				apiKey: "4a35c4b443fa2594bc852d57ba8b59c0"
 			}
 		},
+
+		{
+			module: "MMM-Canvas",
+			position: "bottom_left",
+			config: {
+			  accessKey: "canvaskey",
+			  colors: ["white", "white", "white", "white", "white", "white", "white", "white", ],
+			  courses: ["52758", "50134", "55070", "51498", "52284", "52523", "52802", "49761",],
+			  urlbase: "sit.instructure.com/",
+			  assignMaxLen: 35,
+			  assignToDisplay: 10,
+			}
+		},
+		
 		{
 			module: "newsfeed",
 			position: "bottom_bar",
