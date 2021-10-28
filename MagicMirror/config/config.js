@@ -124,6 +124,17 @@ let config = {
 			  assignToDisplay: 10,
 			}
 		},
+		{
+			module: "MMM-NowPlayingOnSpotify",
+			position: "bottom_right",
+		  
+			config: {
+			  clientID: "2773a1fd3e4d4487b01ac11733a37bf9",
+			  clientSecret: "key1",
+			  accessToken: "key2",
+			  refreshToken: "key3"
+			}
+		  },
 		
 		{
 			module: "newsfeed",
