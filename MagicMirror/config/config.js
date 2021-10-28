@@ -80,7 +80,8 @@ let config = {
                         routes: ["126"]
                     }
                 ]
-            }
+            },
+			classes: 'academic'
         },
 		
 		{
@@ -122,7 +123,8 @@ let config = {
 			  urlbase: "sit.instructure.com/",
 			  assignMaxLen: 35,
 			  assignToDisplay: 10,
-			}
+			},
+			classes: 'academic'
 		},
 		
 		{
@@ -138,7 +140,22 @@ let config = {
 				showSourceTitle: true,
 				showPublishDate: true,
 				broadcastNewsFeeds: true,
-				broadcastNewsUpdates: true
+				broadcastNewsUpdates: true,
+				classes: 'academic'
+			}
+		},
+		{
+			module: 'MMM-ModuleScheduler',
+			config: {
+				global_schedule: {from: '0 16 * * *', to: '00 9 * * *', groupClass: 'academic'},
+				notification_schedule: {
+					notification: 'SHOW_ALERT',
+					schedule: '0 8 * * *',
+					payload: {
+						type: "notification",
+						title: 'Good morning!'
+					}
+				}
 			}
 		},
 	]
