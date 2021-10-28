@@ -151,9 +151,9 @@ let config = {
 		{
 			module: 'MMM-ModuleScheduler',
 			config: {
-				global_schedule: {from: '0 16 * * *', to: '0 0 * * *', groupClass: 'academic'},
-				global_schedule: {from: '0 6 * * *', to: '0 9 * * *', groupClass: 'academic'},
-				global_schedule: {from: '0 6 * * *', to: '0 0 * * *', groupClass: 'essential'},
+				global_schedule: [
+					{from: '0 16 * * *', to: '59 23 * * *', groupClass: 'academic'},
+					{from: '0 6 * * *', to: '59 23 * * *', groupClass: 'essential'}],
 				notification_schedule: {
 					notification: 'SHOW_ALERT',
 					schedule: '0 8 * * *',
