@@ -140,9 +140,9 @@ let config = {
 				showSourceTitle: true,
 				showPublishDate: true,
 				broadcastNewsFeeds: true,
-				broadcastNewsUpdates: true,
-				classes: 'academic'
-			}
+				broadcastNewsUpdates: true
+			},
+			classes: 'academic'
 		},
 		{
 			module: 'MMM-ModuleScheduler',
