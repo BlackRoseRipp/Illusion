@@ -47,8 +47,7 @@ let config = {
 		},
 		{
 			module: "clock",
-			position: "top_left",
-			classes: 'essential'
+			position: "top_left"
 		},
 		{
 			module: "calendar",
