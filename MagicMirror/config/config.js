@@ -47,7 +47,8 @@ let config = {
 		},
 		{
 			module: "clock",
-			position: "top_left"
+			position: "top_left",
+			classes: 'essential'
 		},
 		{
 			module: "calendar",
@@ -59,7 +60,8 @@ let config = {
 						symbol: "calendar-check",
 						url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics"					}
 				]
-			}
+			},
+			classes: 'essential'
 		},
         {
             module: "MMM-NJTransit",
@@ -98,7 +100,8 @@ let config = {
 				location: "New York",
 				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
 				apiKey: "4a35c4b443fa2594bc852d57ba8b59c0"
-			}
+			},
+			classes: 'essential'
 		},
 		{
 			module: "weather",
@@ -110,7 +113,8 @@ let config = {
 				location: "New York",
 				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
 				apiKey: "4a35c4b443fa2594bc852d57ba8b59c0"
-			}
+			},
+			classes: 'essential'
 		},
 
 		{
@@ -147,7 +151,9 @@ let config = {
 		{
 			module: 'MMM-ModuleScheduler',
 			config: {
-				global_schedule: {from: '0 16 * * *', to: '00 9 * * *', groupClass: 'academic'},
+				global_schedule: {from: '0 16 * * *', to: '0 23 * * *', groupClass: 'academic'},
+				global_schedule: {from: '0 6 * * *', to: '0 9 * * *', groupClass: 'academic'},
+				global_schedule: {from: '0 6 * * *', to: '0 23 * * *', groupClass: 'essential'},
 				notification_schedule: {
 					notification: 'SHOW_ALERT',
 					schedule: '0 8 * * *',
