@@ -174,6 +174,20 @@ let config = {
 				}
 			}
 		},
+		/*
+		{
+			module: 'MMM-alexa',
+			position: 'bottom-left', // The status indicator position
+			config: {
+				// See 'Configuration options' for more information.
+				avsDeviceId: 'my_device',
+				avsClientId: 'amzn1.application-oa2-client.abcdefgh',
+				avsClientSecret: 'abcdefgh',
+				avsInitialCode: 'ANVabcdefgh',
+				enableRaspberryButton: true
+			}
+		}
+		*/
 	]
 };
 
