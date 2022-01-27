@@ -174,6 +174,12 @@ let config = {
 				}
 			}
 		},
+		{
+			module: 'MMM-ProfileSwitcher',
+			config: {
+				// See 'Configuration options' for more information.
+			}
+		}
 	]
 };
 
