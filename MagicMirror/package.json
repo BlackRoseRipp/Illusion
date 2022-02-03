@@ -4,7 +4,7 @@
 	"description": "The open source modular smart mirror platform.",
 	"main": "js/electron.js",
 	"scripts": {
-		"start": "node_modules/.bin/electron js/electron.js",
+		"start": "electron js/electron.js",
 		"start:dev": "DISPLAY=\"${DISPLAY:=:0}\" ./node_modules/.bin/electron js/electron.js dev",
 		"server": "node ./serveronly",
 		"install": "echo \"Installing vendor files ...\n\" && cd vendor && npm install --loglevel=error",
@@ -52,7 +52,7 @@
 		"express-basic-auth": "^1.2.0",
 		"husky": "^6.0.0",
 		"jest": "27.0.5",
-		"jsdom": "^16.6.0",
+		"jsdom": "^16.7.0",
 		"lodash": "^4.17.21",
 		"nyc": "^15.1.0",
 		"prettier": "^2.3.1",
@@ -79,10 +79,13 @@
 		"iconv-lite": "^0.6.3",
 		"module-alias": "^2.2.2",
 		"moment": "^2.29.1",
-		"node-fetch": "^2.6.1",
+		"moment-timezone": "^0.5.34",
+		"node-fetch": "^2.6.7",
 		"node-ical": "^0.13.0",
+		"request": "^2.88.2",
 		"simple-git": "^2.40.0",
-		"socket.io": "^4.1.2"
+		"socket.io": "^4.1.2",
+		"xml2js": "^0.4.23"
 	},
 	"_moduleAliases": {
 		"node_helper": "js/node_helper.js",

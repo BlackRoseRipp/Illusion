@@ -62,7 +62,7 @@ let config = {
 			},
 			classes: 'essential'
 		},
-        {
+        /*{
             module: "MMM-NJTransit",
             position: "top_left",
             header: "Bus Schedule",
@@ -89,7 +89,7 @@ let config = {
 			module: "compliments",
 			position: "lower_third"
 		},
-		
+		*/
 		{
 			module: "weather",
 			position: "top_right",
@@ -115,7 +115,7 @@ let config = {
 			},
 			classes: 'essential'
 		},
-
+		/*
 		{
 			module: "MMM-Canvas",
 			position: "bottom_left",
@@ -174,20 +174,43 @@ let config = {
 				}
 			}
 		},
-		/*
+		
 		{
 			module: 'MMM-alexa',
-			position: 'bottom-left', // The status indicator position
+			position: 'middle-center', // The status indicator position
 			config: {
 				// See 'Configuration options' for more information.
-				avsDeviceId: 'my_device',
-				avsClientId: 'amzn1.application-oa2-client.abcdefgh',
-				avsClientSecret: 'abcdefgh',
-				avsInitialCode: 'ANVabcdefgh',
+				avsDeviceId: 'Illusion',
+				avsClientId: 'amzn1.application-oa2-client.693cbd8ec0f24db898a03dd6b44c40f8',
+				avsClientSecret: 'ba8226b71051bd3204330d55941d34749ffce5b5e1ace5124c2472a367f0a8d6',
+				avsInitialCode: 'ANniDbeDfAznptvIbYJf',
 				enableRaspberryButton: true
 			}
 		}
 		*/
+		{
+			module: 'MMM-Dad-Jokes',
+            position: 'bottom_center', // Or wherever you want
+            config: {
+                updateInterval: 60000,
+                fadeSpeed: 4000
+            }
+		},
+		{
+			module: 'on-this-day',
+			position: 'bottom_bar',
+			config: {
+						updateInterval: 1000 * 60,
+						interests: ["history", "sport"]
+					}
+		},
+		{
+			module: 'MMM-NFL',
+			position: 'middle_center',
+			config: {
+				// all your config options, which are different than their default values
+			}
+		},
 	]
 };
 
