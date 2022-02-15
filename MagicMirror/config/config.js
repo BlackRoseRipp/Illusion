@@ -50,49 +50,12 @@ let config = {
 			position: "top_left"
 		},
 		{
-			module: "calendar",
-			header: "US Holidays",
-			position: "top_left",
-			config: {
-				calendars: [
-					{
-						symbol: "calendar-check",
-						url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics"					}
-				]
-			},
-			classes: 'essential'
-		},
-        {
-            module: "MMM-NJTransit",
-            position: "top_left",
-            header: "Bus Schedule",
-            config: {
-                colored: true,
-                stops: [{
-                        id: "26229",
-                        label: "Port Authority to HOB Terminal",
-                        color: "cyan",
-                        routes: ["126"]
-                    },
-                    {
-                        id: "20496",
-                        label: "HOB Terminal to Port Authority",
-                        color: "yellow",
-                        routes: ["126"]
-                    }
-                ]
-            },
-			classes: 'academic'
-        },
-		
-		{
 			module: "compliments",
 			position: "lower_third"
 		},
-		
 		{
 			module: "weather",
-			position: "top_right",
+			position: "top_left",
 			config: {
 				weatherProvider: "openweathermap",
 				type: "current",
@@ -102,45 +65,6 @@ let config = {
 			},
 			classes: 'essential'
 		},
-		{
-			module: "weather",
-			position: "top_right",
-			header: "Weather Forecast",
-			config: {
-				weatherProvider: "openweathermap",
-				type: "forecast",
-				location: "New York",
-				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				apiKey: "4a35c4b443fa2594bc852d57ba8b59c0"
-			},
-			classes: 'essential'
-		},
-
-		{
-			module: "MMM-Canvas",
-			position: "bottom_left",
-			config: {
-			  accessKey: "canvaskey",
-			  colors: ["white", "white", "white", "white", "white", "white", "white", "white", ],
-			  courses: ["52758", "50134", "55070", "51498", "52284", "52523", "52802", "49761",],
-			  urlbase: "sit.instructure.com/",
-			  assignMaxLen: 35,
-			  assignToDisplay: 10,
-			},
-			classes: 'academic'
-		},
-		{
-			module: "MMM-NowPlayingOnSpotify",
-			position: "bottom_right",
-		  
-			config: {
-			  clientID: "2773a1fd3e4d4487b01ac11733a37bf9",
-			  clientSecret: "key1",
-			  accessToken: "key2",
-			  refreshToken: "key3"
-			}
-		  },
-		
 		{
 			module: "newsfeed",
 			position: "bottom_bar",
@@ -159,25 +83,52 @@ let config = {
 			classes: 'academic'
 		},
 		{
-			module: 'MMM-ModuleScheduler',
+			module: "MMM-Jast",
+			position: "top_right",
 			config: {
-				global_schedule: [
-					{from: '0 6 * * *', to: '59 23 * * *', groupClass: 'academic'},
-					{from: '0 6 * * *', to: '59 23 * * *', groupClass: 'essential'}],
-				notification_schedule: {
-					notification: 'SHOW_ALERT',
-					schedule: '0 8 * * *',
-					payload: {
-						type: "notification",
-						title: 'Good morning!'
-					}
-				}
+				maxWidth: "100%",
+				updateIntervalInSeconds: 300,
+				fadeSpeedInSeconds: 3.5,
+				scroll: "none", // One of ["none", "vertical", "horizontal"]
+				useGrouping: false,
+				currencyStyle: "symbol", // One of ["code", "symbol", "name"]
+				lastUpdateFormat: "HH:mm",
+				showColors: true,
+				showCurrency: true,
+				showChangePercent: true,
+				showChangeValue: false,
+				showChangeValueCurrency: false,
+				showLastUpdate: false,
+				showPortfolioValue: true,
+				showPortfolioGrowthPercent: true,
+				showPortfolioGrowth: true,
+				numberDecimalsValues: 2,
+				numberDecimalsPercentages: 1,
+				virtualHorizontalMultiplier: 2,
+				stocks: [
+					{ name: "FB", symbol: "FB", quantity: 1},
+					{ name: "AMZN", symbol: "AMZN", quantity: 1},
+					{ name: "AAPL", symbol: "AAPL", quantity: 1},
+					{ name: "NFLX", symbol: "NFLX", quantity: 1},
+					{ name: "GOOG", symbol: "GOOG", quantity: 1},
+					{ name: "SPY", symbol: "SPY"},
+					{ name: "DJI", symbol: "^DJI"},
+					{ name: "IXIC", symbol: "^IXIC"}
+				]
 			}
 		},
 		{
-			module: 'MMM-ProfileSwitcher',
+			module: "MMM-cryptocurrency",
+			position: "top_right",
 			config: {
-				// See 'Configuration options' for more information.
+				apikey: '06cb0e2a-946f-4ddc-925b-f4510e396e94',
+				currency: ['ethereum', 'bitcoin', 'dogecoin'],
+				conversion: 'USD',
+				maximumFractionDigits: 2,
+				headers: ['change24h', 'change1h', 'change7d'],
+				displayType: 'logoWithChanges',
+				coloredLogos: false,
+				showGraphs: true
 			}
 		}
 	]
