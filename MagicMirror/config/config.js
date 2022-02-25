@@ -40,14 +40,17 @@ let config = {
 	modules: [
 		{
 			module: "alert",
+			classes: "everyone"
 		},
 		{
 			module: "updatenotification",
-			position: "top_bar"
+			position: "top_bar",
+			classes: "everyone"
 		},
 		{
 			module: "clock",
-			position: "top_left"
+			position: "top_left",
+			classes: "everyone"
 		},
 		{
 			module: "calendar",
@@ -60,7 +63,7 @@ let config = {
 						url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics"					}
 				]
 			},
-			classes: 'essential'
+			classes: "everyone"
 		},
         /*{
             module: "MMM-NJTransit",
@@ -100,7 +103,7 @@ let config = {
 				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
 				apiKey: "4a35c4b443fa2594bc852d57ba8b59c0"
 			},
-			classes: 'essential'
+			classes: "everyone"
 		},
 		{
 			module: "weather",
@@ -113,9 +116,8 @@ let config = {
 				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
 				apiKey: "4a35c4b443fa2594bc852d57ba8b59c0"
 			},
-			classes: 'essential'
+			classes: "everyone"
 		},
-		/*
 		{
 			module: "MMM-Canvas",
 			position: "bottom_left",
@@ -127,7 +129,7 @@ let config = {
 			  assignMaxLen: 35,
 			  assignToDisplay: 10,
 			},
-			classes: 'academic'
+			classes: 'Student'
 		},
 		{
 			module: "MMM-NowPlayingOnSpotify",
@@ -138,8 +140,9 @@ let config = {
 			  clientSecret: "key1",
 			  accessToken: "key2",
 			  refreshToken: "key3"
-			}
-		  },
+			},
+			classes: 'Student'
+		},
 		
 		{
 			module: "newsfeed",
@@ -156,25 +159,29 @@ let config = {
 				broadcastNewsFeeds: true,
 				broadcastNewsUpdates: true
 			},
-			classes: 'academic'
+			classes: 'Student'
 		},
+		/*
 		{
 			module: 'MMM-ModuleScheduler',
 			config: {
+				
 				global_schedule: [
 					{from: '0 6 * * *', to: '59 23 * * *', groupClass: 'academic'},
 					{from: '0 6 * * *', to: '59 23 * * *', groupClass: 'essential'}],
-				notification_schedule: {
-					notification: 'SHOW_ALERT',
-					schedule: '0 8 * * *',
-					payload: {
-						type: "notification",
-						title: 'Good morning!'
+				
+				notification_schedule: [
+					{
+						notification: 'CURRENT_Profile',
+						schedule: '0 8 * * *',
+						payload: {
+							type: "notification",
+							title: 'Good morning!'
+						}
 					}
-				}
+				]
 			}
 		},
-		
 		{
 			module: 'MMM-alexa',
 			position: 'middle-center', // The status indicator position
@@ -194,22 +201,45 @@ let config = {
             config: {
                 updateInterval: 60000,
                 fadeSpeed: 4000
-            }
+            },
+			classes: "Daddy"
 		},
 		{
 			module: 'on-this-day',
 			position: 'bottom_bar',
 			config: {
-						updateInterval: 1000 * 60,
-						interests: ["history", "sport"]
-					}
+				updateInterval: 1000 * 60,
+				interests: ["history", "sport"]
+			},
+			classes: "Daddy"
 		},
 		{
 			module: 'MMM-NFL',
 			position: 'middle_center',
 			config: {
 				// all your config options, which are different than their default values
-			}
+			},
+			classes: "Daddy"
+		},
+		{
+			module: 'MMM-ProfileSwitcher',
+			config: {
+				includeEveryoneToDefault: true,
+				timers: {
+					"Daddy": {
+						profile: "Student",
+						time: 30 * 1000
+					},
+					"Student": {
+						time: 30 * 1000
+					},
+					"default": {
+						profile: "Daddy",
+						time: 1 * 1000
+					}
+				}
+			},
+			
 		},
 	]
 };
