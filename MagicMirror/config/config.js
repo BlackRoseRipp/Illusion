@@ -65,7 +65,7 @@ let config = {
 			},
 			classes: "everyone"
 		},
-        /*{
+        {
             module: "MMM-NJTransit",
             position: "top_left",
             header: "Bus Schedule",
@@ -85,17 +85,16 @@ let config = {
                     }
                 ]
             },
-			classes: 'academic'
+			classes: 'Student'
         },
-		
 		{
 			module: "compliments",
-			position: "lower_third"
+			position: "lower_third",
+			classes: "Student"
 		},
-		*/
 		{
 			module: "weather",
-			position: "top_right",
+			position: "top_left",
 			config: {
 				weatherProvider: "openweathermap",
 				type: "current",
@@ -161,40 +160,42 @@ let config = {
 			},
 			classes: 'Student'
 		},
-		/*
 		{
-			module: 'MMM-ModuleScheduler',
+			module: "MMM-Jast",
+			position: "top_right",
 			config: {
-				
-				global_schedule: [
-					{from: '0 6 * * *', to: '59 23 * * *', groupClass: 'academic'},
-					{from: '0 6 * * *', to: '59 23 * * *', groupClass: 'essential'}],
-				
-				notification_schedule: [
-					{
-						notification: 'CURRENT_Profile',
-						schedule: '0 8 * * *',
-						payload: {
-							type: "notification",
-							title: 'Good morning!'
-						}
-					}
+				maxWidth: "100%",
+				updateIntervalInSeconds: 300,
+				fadeSpeedInSeconds: 3.5,
+				scroll: "none", // One of ["none", "vertical", "horizontal"]
+				useGrouping: false,
+				currencyStyle: "symbol", // One of ["code", "symbol", "name"]
+				lastUpdateFormat: "HH:mm",
+				showColors: true,
+				showCurrency: true,
+				showChangePercent: true,
+				showChangeValue: false,
+				showChangeValueCurrency: false,
+				showLastUpdate: false,
+				showPortfolioValue: true,
+				showPortfolioGrowthPercent: true,
+				showPortfolioGrowth: true,
+				numberDecimalsValues: 2,
+				numberDecimalsPercentages: 1,
+				virtualHorizontalMultiplier: 2,
+				stocks: [
+					{ name: "FB", symbol: "FB", quantity: 1},
+					{ name: "AMZN", symbol: "AMZN", quantity: 1},
+					{ name: "AAPL", symbol: "AAPL", quantity: 1},
+					{ name: "NFLX", symbol: "NFLX", quantity: 1},
+					{ name: "GOOG", symbol: "GOOG", quantity: 1},
+					{ name: "SPY", symbol: "SPY"},
+					{ name: "DJI", symbol: "^DJI"},
+					{ name: "IXIC", symbol: "^IXIC"}
 				]
-			}
+			},
+			classes: 'Finance'
 		},
-		{
-			module: 'MMM-alexa',
-			position: 'middle-center', // The status indicator position
-			config: {
-				// See 'Configuration options' for more information.
-				avsDeviceId: 'Illusion',
-				avsClientId: 'amzn1.application-oa2-client.693cbd8ec0f24db898a03dd6b44c40f8',
-				avsClientSecret: 'ba8226b71051bd3204330d55941d34749ffce5b5e1ace5124c2472a367f0a8d6',
-				avsInitialCode: 'ANniDbeDfAznptvIbYJf',
-				enableRaspberryButton: true
-			}
-		}
-		*/
 		{
 			module: 'MMM-Dad-Jokes',
             position: 'bottom_center', // Or wherever you want
@@ -231,6 +232,10 @@ let config = {
 						time: 30 * 1000
 					},
 					"Student": {
+						profile: "Finance",
+						time: 30 * 1000
+					},
+					"Finance": {
 						time: 30 * 1000
 					},
 					"default": {
@@ -241,6 +246,20 @@ let config = {
 			},
 			
 		},
+		{
+			module: "MMM-cryptocurrency",
+			position: "top_right",
+			config: {
+				apikey: '06cb0e2a-946f-4ddc-925b-f4510e396e94',
+				currency: ['ethereum', 'bitcoin', 'dogecoin'],
+				conversion: 'USD',
+				maximumFractionDigits: 2,
+				headers: ['change24h', 'change1h', 'change7d'],
+				displayType: 'logoWithChanges',
+				coloredLogos: false,
+				showGraphs: true
+			}
+		}
 	]
 };
 
