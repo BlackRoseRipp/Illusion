@@ -178,9 +178,8 @@ let config = {
 				broadcastNewsFeeds: true,
 				broadcastNewsUpdates: true
 			},
-			classes: 'Student'
+			classes: 'everyone'
 		},
-		/*
 		{
 			module: "MMM-Jast",
 			position: "top_right",
@@ -217,7 +216,6 @@ let config = {
 			},
 			classes: 'Finance'
 		},
-		*/
 		{
 			module: 'MMM-Dad-Jokes',
             position: 'bottom_center', // Or wherever you want
