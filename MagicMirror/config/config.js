@@ -43,14 +43,17 @@ let config = {
 	modules: [
 		{
 			module: "alert",
+			classes: "everyone"
 		},
 		{
 			module: "updatenotification",
-			position: "top_bar"
+			position: "top_bar",
+			classes: "everyone"
 		},
 		{
 			module: "clock",
-			position: "top_left"
+			position: "top_left",
+			classes: "everyone"
 		},
 		{
 			module: "calendar",
@@ -60,10 +63,11 @@ let config = {
 				calendars: [
 					{
 						symbol: "calendar-check",
-						url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics"					}
+						url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics"
+					}
 				]
 			},
-			classes: 'essential'
+			classes: "everyone"
 		},
 		{
 			module: 'MMM-Remote-Control',
@@ -78,7 +82,8 @@ let config = {
 				// customMenu: "custom_menu.json", // Optional, See "Custom Menu Items" below
 				// apiKey: "", // Optional, See API/README.md for details
 				// classes: {} // Optional, See "Custom Classes" below
-			}
+			},
+			classes: "everyone"
 		},
         {
             module: "MMM-NJTransit",
@@ -100,17 +105,16 @@ let config = {
                     }
                 ]
             },
-			classes: 'academic'
+			classes: 'Student'
         },
-		
 		{
 			module: "compliments",
-			position: "lower_third"
+			position: "lower_third",
+			classes: "Student"
 		},
-		
 		{
 			module: "weather",
-			position: "top_right",
+			position: "top_left",
 			config: {
 				weatherProvider: "openweathermap",
 				type: "current",
@@ -118,7 +122,7 @@ let config = {
 				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
 				apiKey: "4a35c4b443fa2594bc852d57ba8b59c0"
 			},
-			classes: 'essential'
+			classes: "everyone"
 		},
 		{
 			module: "weather",
@@ -131,9 +135,8 @@ let config = {
 				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
 				apiKey: "4a35c4b443fa2594bc852d57ba8b59c0"
 			},
-			classes: 'essential'
+			classes: "everyone"
 		},
-		/*
 		{
 			module: "MMM-Canvas",
 			position: "bottom_left",
@@ -145,9 +148,8 @@ let config = {
 			  assignMaxLen: 35,
 			  assignToDisplay: 10,
 			},
-			classes: 'academic'
+			classes: 'Student'
 		},
-		*/
 		{
 			module: "MMM-NowPlayingOnSpotify",
 			position: "bottom_right",
@@ -157,8 +159,9 @@ let config = {
 			  clientSecret: "key1",
 			  accessToken: "key2",
 			  refreshToken: "key3"
-			}
-		  },
+			},
+			classes: 'Student'
+		},
 		
 		{
 			module: "newsfeed",
@@ -175,24 +178,108 @@ let config = {
 				broadcastNewsFeeds: true,
 				broadcastNewsUpdates: true
 			},
-			classes: 'academic'
+			classes: 'Student'
 		},
 		{
-			module: 'MMM-ModuleScheduler',
+			module: "MMM-Jast",
+			position: "top_right",
 			config: {
-				global_schedule: [
-					{from: '0 6 * * *', to: '59 23 * * *', groupClass: 'academic'},
-					{from: '0 6 * * *', to: '59 23 * * *', groupClass: 'essential'}],
-				notification_schedule: {
-					notification: 'SHOW_ALERT',
-					schedule: '0 8 * * *',
-					payload: {
-						type: "notification",
-						title: 'Good morning!'
+				maxWidth: "100%",
+				updateIntervalInSeconds: 300,
+				fadeSpeedInSeconds: 3.5,
+				scroll: "none", // One of ["none", "vertical", "horizontal"]
+				useGrouping: false,
+				currencyStyle: "symbol", // One of ["code", "symbol", "name"]
+				lastUpdateFormat: "HH:mm",
+				showColors: true,
+				showCurrency: true,
+				showChangePercent: true,
+				showChangeValue: false,
+				showChangeValueCurrency: false,
+				showLastUpdate: false,
+				showPortfolioValue: true,
+				showPortfolioGrowthPercent: true,
+				showPortfolioGrowth: true,
+				numberDecimalsValues: 2,
+				numberDecimalsPercentages: 1,
+				virtualHorizontalMultiplier: 2,
+				stocks: [
+					{ name: "FB", symbol: "FB", quantity: 1},
+					{ name: "AMZN", symbol: "AMZN", quantity: 1},
+					{ name: "AAPL", symbol: "AAPL", quantity: 1},
+					{ name: "NFLX", symbol: "NFLX", quantity: 1},
+					{ name: "GOOG", symbol: "GOOG", quantity: 1},
+					{ name: "SPY", symbol: "SPY"},
+					{ name: "DJI", symbol: "^DJI"},
+					{ name: "IXIC", symbol: "^IXIC"}
+				]
+			},
+			classes: 'Finance'
+		},
+		{
+			module: 'MMM-Dad-Jokes',
+            position: 'bottom_center', // Or wherever you want
+            config: {
+                updateInterval: 60000,
+                fadeSpeed: 4000
+            },
+			classes: "Daddy"
+		},
+		{
+			module: 'on-this-day',
+			position: 'bottom_bar',
+			config: {
+				updateInterval: 1000 * 60,
+				interests: ["history", "sport"]
+			},
+			classes: "Daddy"
+		},
+		{
+			module: 'MMM-NFL',
+			position: 'middle_center',
+			config: {
+				// all your config options, which are different than their default values
+			},
+			classes: "Daddy"
+		},
+		{
+			module: 'MMM-ProfileSwitcher',
+			config: {
+				includeEveryoneToDefault: true,
+				timers: {
+					"Daddy": {
+						profile: "Student",
+						time: 30 * 1000
+					},
+					"Student": {
+						profile: "Finance",
+						time: 30 * 1000
+					},
+					"Finance": {
+						time: 30 * 1000
+					},
+					"default": {
+						profile: "Daddy",
+						time: 1 * 1000
 					}
 				}
-			}
+			},
+			
 		},
+		{
+			module: "MMM-cryptocurrency",
+			position: "top_right",
+			config: {
+				apikey: '06cb0e2a-946f-4ddc-925b-f4510e396e94',
+				currency: ['ethereum', 'bitcoin', 'dogecoin'],
+				conversion: 'USD',
+				maximumFractionDigits: 2,
+				headers: ['change24h', 'change1h', 'change7d'],
+				displayType: 'logoWithChanges',
+				coloredLogos: false,
+				showGraphs: true
+			}
+		}
 	]
 };
 
