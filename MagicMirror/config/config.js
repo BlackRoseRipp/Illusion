@@ -180,6 +180,7 @@ let config = {
 			},
 			classes: 'Student'
 		},
+		/*
 		{
 			module: "MMM-Jast",
 			position: "top_right",
@@ -216,6 +217,7 @@ let config = {
 			},
 			classes: 'Finance'
 		},
+		*/
 		{
 			module: 'MMM-Dad-Jokes',
             position: 'bottom_center', // Or wherever you want
@@ -243,6 +245,21 @@ let config = {
 			classes: "Daddy"
 		},
 		{
+			module: "MMM-cryptocurrency",
+			position: "top_right",
+			config: {
+				apikey: '06cb0e2a-946f-4ddc-925b-f4510e396e94',
+				currency: ['ethereum', 'bitcoin', 'dogecoin'],
+				conversion: 'USD',
+				maximumFractionDigits: 2,
+				headers: ['change24h', 'change1h', 'change7d'],
+				displayType: 'logoWithChanges',
+				coloredLogos: false,
+				showGraphs: true
+			},
+			classes: "Finance"
+		},
+		{
 			module: 'MMM-ProfileSwitcher',
 			config: {
 				includeEveryoneToDefault: true,
@@ -265,20 +282,6 @@ let config = {
 				}
 			},
 			
-		},
-		{
-			module: "MMM-cryptocurrency",
-			position: "top_right",
-			config: {
-				apikey: '06cb0e2a-946f-4ddc-925b-f4510e396e94',
-				currency: ['ethereum', 'bitcoin', 'dogecoin'],
-				conversion: 'USD',
-				maximumFractionDigits: 2,
-				headers: ['change24h', 'change1h', 'change7d'],
-				displayType: 'logoWithChanges',
-				coloredLogos: false,
-				showGraphs: true
-			}
 		}
 	]
 };
